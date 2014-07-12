@@ -14,3 +14,7 @@ test {
     events 'started', 'passed'
   }
 }
+
+task wrapper(type: Wrapper) {
+  gradleVersion = '2.0'
+}
