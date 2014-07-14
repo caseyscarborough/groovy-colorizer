@@ -30,35 +30,43 @@ class Colorizer {
     blue:          34,
     magenta:       35,
     cyan:          36,
-    light_gray:    37,
-    dark_gray:     90,
-    light_red:     91,
-    light_green:   92,
-    light_yellow:  93,
-    light_blue:    94,
-    light_magenta: 95,
-    light_cyan:    96,
+    lightGray:     37,
+    darkGray:      90,
+    lightRed:      91,
+    lightGreen:    92,
+    lightYellow:   93,
+    lightBlue:     94,
+    lightMagenta:  95,
+    lightCyan:     96,
     white:         97,
 
     // Background colors
-    _default_:       49,
-    _black_:         40,
-    _red_:           41,
-    _green_:         42,
-    _yellow_:        43,
-    _blue_:          44,
-    _magenta_:       45,
-    _cyan_:          46,
-    _light_gray_:    47,
-    _dark_gray_:     100,
-    _light_red_:     101,
-    _light_green_:   102,
-    _light_yellow_:  103,
-    _light_blue_:    104,
-    _light_magenta_: 105,
-    _light_cyan_:    106,
-    _white_:         107
+    _default:       49,
+    _black:         40,
+    _red:           41,
+    _green:         42,
+    _yellow:        43,
+    _blue:          44,
+    _magenta:       45,
+    _cyan:          46,
+    _lightGray:     47,
+    _darkGray:     100,
+    _lightRed:     101,
+    _lightGreen:   102,
+    _lightYellow:  103,
+    _lightBlue:    104,
+    _lightMagenta: 105,
+    _lightCyan:    106,
+    _white:        107
   ]
+
+  static void initializeMixins() {
+    colorCodes.each { color, code ->
+      String.metaClass."$color" = { ->
+        return "\033[${code}m$delegate\033[0m"
+      }
+    }
+  }
 
   static String colorize(String s) {
     def matcher = ( s =~ /\[(\w+)\]/ )
