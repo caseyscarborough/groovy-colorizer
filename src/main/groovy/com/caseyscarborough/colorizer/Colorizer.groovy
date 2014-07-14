@@ -6,13 +6,22 @@ package com.caseyscarborough.colorizer
 // the string at the starting place that the string should be colored.
 //
 // For example, the string '[red]Hello, [yellow]world!' would return 'Hello, ' in
-// red and 'world!' in yellow. Surrounding the colors with underscores will color
+// red and 'world!' in yellow. Prepending the colors with an underscore will color
 // the background of the string in a similar fashion.
 //
 // Example:
 //   
-//   def sentence = "[_red_][black]Hey there, [yellow]how are [blue]you?"
+//   def sentence = "[_lightBlue][black]Hey there, [yellow]how are [blue]you?"
 //   println Colorizer.colorize(sentence)
+//
+// In addition to this, mixin methods have been created on the Groovy String class
+// to allow you to call the color names as methods on a String. To use these methods,
+// you must first call Colorizer#initializeMixins().
+//
+// Example:
+//
+//   Colorizer.initializeMixins()
+//   "Hello, world!".red()
 //
 // Copyright 2014 Casey Scarborough
 //
