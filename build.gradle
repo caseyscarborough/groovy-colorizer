@@ -23,6 +23,11 @@ test {
   }
 }
 
+task sourceJar(type: Jar) {
+  from sourceSets.main.allSource
+  classifier "sources"
+}
+
 publishing {
   publications {
     GroovyColorizerPublication(MavenPublication) {
@@ -30,6 +35,8 @@ publishing {
       groupId 'com.caseyscarborough.colorizer'
       artifactId 'groovy-colorizer'
       version '1.0.0'
+
+      artifact sourceJar
     }
   }
 }
