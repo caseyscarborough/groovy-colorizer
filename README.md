@@ -4,7 +4,23 @@ This repository is a Groovy library for colorizing terminal output.
 
 ## Installation
 
-Download the [JAR file](http://dl.bintray.com/caseyscarborough/groovy-plugins/colorizer.jar) and add it to your classpath, or clone the project and build the JAR yourself:
+Include the following in your `pom.xml` file:
+
+```xml
+<dependency>
+    <groupId>com.caseyscarborough.colorizer</groupId>
+    <artifactId>groovy-colorizer</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
+Or your `build.gradle` file:
+
+```
+compile(group: 'com.caseyscarborough.colorizer', name: 'groovy-colorizer', version: '1.0.0')
+```
+
+Or download the [JAR file](https://bintray.com/artifact/download/caseyscarborough/maven/com/caseyscarborough/colorizer/groovy-colorizer/1.0.0/groovy-colorizer-1.0.0.jar) and add it to your classpath, or clone the project and build the JAR yourself:
 
 ```bash
 $ git clone https://github.com/caseyscarborough/groovy-colorizer
